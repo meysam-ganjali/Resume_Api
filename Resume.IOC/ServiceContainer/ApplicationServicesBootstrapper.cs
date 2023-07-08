@@ -20,6 +20,12 @@ public static class ApplicationServicesBootstrapper
         services.AddScoped<IAuthRepository,AuthRepository>();
         services.AddScoped<IAuthService,   AuthService>();
 
+        services.AddScoped<ISkillTypeRepository, SkillTypeRepository>();
+        services.AddScoped<ISkillTypeService,    SkillTypeService>();
+
+        services.AddScoped<IUserSkillRepository, UserSkillRepository>();
+        services.AddScoped<IUserSkillService,    UserSkillService>();
+
         return services;
     }
 }
