@@ -80,7 +80,7 @@ public class UserSkillService : IUserSkillService {
             };
         }
 
-        if (await _userSkillRepository.IsExistAsync(x => x.SkillName == p.SkillName)) {
+        if (await _userSkillRepository.IsExistAsync(x => x.SkillName == p.SkillName && x.UserId == p.UserId)) {
             return new BaseResult {
                 IsSuccess = false,
                 StatusCode = HttpStatusCode.BadRequest,
@@ -128,7 +128,7 @@ public class UserSkillService : IUserSkillService {
                 Message = ValidationMessages.RecordNotFound,
             };
         }
-        if (await _userSkillRepository.IsExistAsync(x => x.SkillName == p.SkillName && x.Id != p.Id)) {
+        if (await _userSkillRepository.IsExistAsync(x => (x.SkillName == p.SkillName && x.UserId == p.UserId) && x.Id != p.Id)) {
             return new BaseResult {
                 IsSuccess = false,
                 StatusCode = HttpStatusCode.BadRequest,

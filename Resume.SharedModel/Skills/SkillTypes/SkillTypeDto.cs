@@ -11,6 +11,5 @@ public class CreateSkillTypeParam
 }
 public class UpdateSkillTypeParam {
     public Guid Id { get; set; }
-    public string? UpdatedAt { get; set; }
     public string Name { get; set; }
 }

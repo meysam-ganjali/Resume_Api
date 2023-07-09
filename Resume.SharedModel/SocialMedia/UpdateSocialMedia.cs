@@ -8,5 +8,4 @@ public class UpdateSocialMedia {
     public string Link { get; set; }
     public Guid UserId { get; set; }
     public Guid Id { get; set; }
-    public DateTime UpdateDate { get; set; }
 }

@@ -25,7 +25,7 @@ public class SocialMediaService : ISocialMediaService {
         _userSocialMediaRepository = userSocialMediaRepository;
     }
     public async Task<BaseResult> CreateAsync(CreateSocialMedia p) {
-        if (await _userSocialMediaRepository.IsExistAsync(x => x.Link == p.Link && x.Name == p.Link)) {
+        if (await _userSocialMediaRepository.IsExistAsync(x => (x.Link == p.Link && x.Name == p.Link) && x.UserId == p.UserId)) {
             return new BaseResult {
                 IsSuccess = false,
                 StatusCode = HttpStatusCode.BadRequest,
@@ -71,7 +71,7 @@ public class SocialMediaService : ISocialMediaService {
                 Message = ValidationMessages.RecordNotFound
             };
         }
-        if (await _userSocialMediaRepository.IsExistAsync(x => (x.Link == p.Link && x.Name == p.Name) && x.Id != p.Id)) {
+        if (await _userSocialMediaRepository.IsExistAsync(x => (x.Link == p.Link && x.Name == p.Name) && (x.UserId == p.UserId) && x.Id != p.Id)) {
             return new BaseResult {
                 IsSuccess = false,
                 StatusCode = HttpStatusCode.BadRequest,
@@ -163,18 +163,15 @@ public class SocialMediaService : ISocialMediaService {
             };
         }
 
-        return new BaseResult<SocialMediaDto>
-        {
+        return new BaseResult<SocialMediaDto> {
             IsSuccess = true,
             Data = MappToSingleUserSocialMediaDto(socialMedia),
             StatusCode = HttpStatusCode.OK
         };
     }
 
-    private SocialMediaDto MappToSingleUserSocialMediaDto(UsersocialMedia socialMedia)
-    {
-        return new SocialMediaDto
-        {
+    private SocialMediaDto MappToSingleUserSocialMediaDto(UsersocialMedia socialMedia) {
+        return new SocialMediaDto {
             CreatedAt = socialMedia.CreatedAt.ToFarsi(),
             UpdatedAt = socialMedia.UpdatedAt.ToFarsi(),
             Id = socialMedia.Id,

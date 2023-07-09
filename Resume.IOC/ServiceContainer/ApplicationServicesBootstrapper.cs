@@ -27,6 +27,9 @@ public static class ApplicationServicesBootstrapper {
         services.AddScoped<IUserSocialMediaRepository, UserSocialMediaRepository>();
         services.AddScoped<ISocialMediaService, SocialMediaService>();
 
+        services.AddScoped<IWorkExperienceRepository, WorkExperienceRepository>();
+        services.AddScoped<IWorkExperienceService, WorkExperienceService>();
+
         return services;
     }
 }

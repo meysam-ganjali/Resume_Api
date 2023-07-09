@@ -4,7 +4,6 @@ namespace Resume.SharedModel.Skills;
 
 public class UpdateSkillParam {
     public Guid Id { get; set; }
-    public DateTime UpdateDat { get; set; }
     public string SkillName { get; set; }
     public int SkillPercentage { get; set; }
     public IFormFile? SkillLogo { get; set; }
