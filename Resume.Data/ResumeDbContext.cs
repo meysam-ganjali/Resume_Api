@@ -15,7 +15,7 @@ public class ResumeDbContext:DbContext
     public DbSet<DegreeEducation> DegreeEducations { get; set; }
     public DbSet<Skill> Skills { get; set; }
     public DbSet<SkillType> SkillTypes { get; set; }
-    public DbSet<UsersocialMedia> UsersocialMediae { get; set; }
+    public DbSet<UsersocialMedia?> UsersocialMediae { get; set; }
     public DbSet<WorkExperience> WorkExperiences { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
