@@ -12,7 +12,7 @@ public class ResumeDbContext:DbContext
 
     public DbSet<Role> Roles { get; set; }
     public DbSet<User?> Users { get; set; }
-    public DbSet<DegreeEducation> DegreeEducations { get; set; }
+    public DbSet<DegreeEducation?> DegreeEducations { get; set; }
     public DbSet<Skill> Skills { get; set; }
     public DbSet<SkillType> SkillTypes { get; set; }
     public DbSet<UsersocialMedia?> UsersocialMediae { get; set; }

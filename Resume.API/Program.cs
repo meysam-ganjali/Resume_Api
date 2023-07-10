@@ -7,7 +7,7 @@ using Resume.IOC.SwaggerContainer;
 #region Services
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors();
 builder.Services.DataBaseConfig(builder.Configuration.GetConnectionString("ResumeCon"));
 
 builder.Services.AddOurSwagger();
@@ -36,7 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors();
 app.MapControllers();
 
 app.Run();

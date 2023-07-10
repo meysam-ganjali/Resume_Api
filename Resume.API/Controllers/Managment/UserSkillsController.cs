@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Resume.Application.AppInterfaces;
 using Resume.Application.Utility;
 using Resume.SharedModel.Skills;
 
 namespace Resume.API.Controllers.Managment {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserSkillsController : ControllerBase {

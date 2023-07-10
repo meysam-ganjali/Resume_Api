@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Auth\" />
+    <Folder Include="DegreeEducations\" />
     <Folder Include="WorkExperience\" />
     <Folder Include="SocialMedia\" />
     <Folder Include="Roles\" />

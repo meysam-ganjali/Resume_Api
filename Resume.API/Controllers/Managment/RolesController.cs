@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Resume.Application.AppInterfaces;
 using Resume.Application.Utility;
 using Resume.SharedModel.Roles;
 
-namespace Resume.API.Controllers.Managment {
+namespace Resume.API.Controllers.Managment
+{
+    [Authorize(Roles = SD.AdminManagment)]
     [Route("api/[controller]")]
     [ApiController]
     public class RolesController : ControllerBase {

@@ -30,6 +30,9 @@ public static class ApplicationServicesBootstrapper {
         services.AddScoped<IWorkExperienceRepository, WorkExperienceRepository>();
         services.AddScoped<IWorkExperienceService, WorkExperienceService>();
 
+        services.AddScoped<IDegreeEducationRepository, DegreeEducationRepository>();
+        services.AddScoped<IDegreeEducationService, DegreeEducationService>();
+
         return services;
     }
 }
